@@ -19,16 +19,14 @@ int[] freq = new int[256];
 
 
 3.	Generating pascal’s triangle  2
-List<List<Integer>> triangle = new ArrayList<>();
- for (int i = 0; i < numRows; i++) { 
-List<Integer> row = new ArrayList<>(); 
-for (int j = 0; j <= i; j++) { 
-if (j == 0 || j == i) { row.add(1); } 
-else { 
-List<Integer> prevRow = triangle.get(i - 1); 
-row.add(prevRow.get(j - 1) + prevRow.get(j)); } } 
-triangle.add(row); } 
-return triangle;
+PriorityQueue<Integer> pq = new PriorityQueue<>(
+            (a, b) -> Math.abs(a - target) - Math.abs(b - target)
+        );
+
+        for (int num : nums) pq.add(num);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) result.add(pq.poll());
+        return result;
 
 
 
@@ -179,34 +177,18 @@ int index = 0, i = 0;
 
 
 13.	 Building the queue   2
-private int[] arr = new int[1000];
-    private int front = 0;             
-    private int rear = 0;              
-    private int count = 0;             
+static class MyQueue {
 
-    
-    public void enqueue(int x) {
-        if (count < arr.length) {
-            arr[rear] = x;
-            rear = (rear + 1) % arr.length; 
-            count++;
-        }
-    }
+    int [] a= new int [1000];
+    int f=0, r=0;
 
-   
-    public int dequeue() {
-        if (count == 0) return -1;
-        int val = arr[front];
-        front = (front + 1) % arr.length; 
-        count--;
-        return val;
-    }
+    public void enqueue(int x) { a[r++]=x; }
 
-    
-    public int peek() {
-        return (count == 0) ? -1 : arr[front];
+    public int dequeue() { return f==r ? -1: a[f++]; }
+
+    public int peek() { return f==r ?  -1: a[f]; }
+
 }
-
 
 14.	 Finding the Points Closest  2
 return java.util.Arrays.stream(nums) .boxed() .sorted(java.util.Comparator.comparingInt(n -> Math.abs(n - target))) .limit(k) .collect(java.util.stream.Collectors.toList());
