@@ -22,10 +22,10 @@ int[] freq = new int[256];
 List<List<Integer>> result = new ArrayList<>();
     
     for (int i = 0; i < numRows; i++) {
-        List<Integer> row = new ArrayList<>(Collections.nCopies(i + 1, 1));
+List<Integer> row = new ArrayList<>(Collections.nCopies(i + 1, 1));
         
         for (int j = 1; j < i; j++)
-            row.set(j, result.get(i-1).get(j-1) + result.get(i-1).get(j));
+row.set(j, result.get(i-1).get(j-1) + result.get(i-1).get(j));
         
         result.add(row);
     }
@@ -39,7 +39,7 @@ if (timeSeries.length == 0) return 0;
         int total = 0;
         for (int i = 0; i < timeSeries.length - 1; i++) {
             
-            total += Math.min(timeSeries[i + 1] - timeSeries[i], duration);
+total += Math.min(timeSeries[i + 1] - timeSeries[i], duration);
         }
         
         return total + duration;
@@ -51,8 +51,8 @@ char[] arr = s.toCharArray();
         
         for (int i = 0; i < arr.length; i++) {
             char c = arr[i];
-            if (c >= 'a' && c <= 'z') arr[i] = (char) ('a' + (c - 'a' + shift) % 26);   
-            else if (c >= 'A' && c <= 'Z') arr[i] = (char) ('A' + (c - 'A' + shift) % 26);
+if (c >= 'a' && c <= 'z') arr[i] = (char) ('a' + (c - 'a' + shift) % 26);   
+else if (c >= 'A' && c <= 'Z') arr[i] = (char) ('A' + (c - 'A' + shift) % 26);
         }
         
         return new String(arr);
@@ -119,8 +119,8 @@ if (s1.length() != s2.length()) return false;
         Map<Character, Integer> map = new HashMap<>();
        
         for (int i = 0; i < s1.length(); i++) {
-            map.put(s1.charAt(i), map.getOrDefault(s1.charAt(i), 0) + 1);
-            map.put(s2.charAt(i), map.getOrDefault(s2.charAt(i), 0) - 1);
+    map.put(s1.charAt(i), map.getOrDefault(s1.charAt(i), 0) + 1);
+    map.put(s2.charAt(i), map.getOrDefault(s2.charAt(i), 0) - 1);
         }
         
         for (int count : map.values()) {
@@ -136,8 +136,8 @@ List<String> res = new ArrayList<>();
         generate(digits, length, "", res);
         return res;
     }
-
-    private void generate(String digits, int length, String current, List<String> res) {
+ private void generate
+	 (String digits, int length, String current, List<String> res) {
         
         if (current.length() == length) {
             res.add(current);
@@ -167,7 +167,7 @@ int index = 0, i = 0;
             
            
             if (count > 1) {
-                for (char c : Integer.toString(count).toCharArray()) {
+            for (char c : Integer.toString(count).toCharArray()) {
                     chars[index++] = c;
                 }
             }
@@ -217,7 +217,8 @@ PriorityQueue<Integer> pq = new PriorityQueue<>(
  if (strs.length == 0) return "";
         String prefix = strs[0];
         for (String s : strs)
-            while (!s.startsWith(prefix)) prefix = prefix.substring(0, prefix.length() - 1);
+while (!s.startsWith(prefix)) 
+	prefix = prefix.substring(0, prefix.length() - 1);
         return prefix;
 
 
@@ -335,7 +336,8 @@ static class DuplicateTask {
 
     public boolean isPalindrome(String s){
 
-     return new StringBuilder(s).reverse().toString().equals(s);
+     
+return new StringBuilder(s).reverse().toString().equals(s);
     }
 }
 
@@ -389,7 +391,7 @@ static class SafeTask {
         return res;
     }
 
-    private void generate(String digits, int length, String curr, List<String> res) {
+private void generate(String digits, int length, String curr, List<String> res) {
         if (curr.length() == length) {
             res.add(curr);
             return;
@@ -472,7 +474,8 @@ static class SafeTask {
         if (strs.length == 0) return "";
         String prefix = strs[0];
         for (String s : strs)
-            while (!s.startsWith(prefix)) prefix = prefix.substring(0, prefix.length() - 1);
+            while (!s.startsWith(prefix))
+			prefix = prefix.substring(0, prefix.length() - 1);
         return prefix;
  
 
@@ -608,7 +611,7 @@ static class HashTask {
 
         for (char c : s.toCharArray())
             r.append(!Character.isLetter(c) ? c :
-                (char)((c < 97 ? 65 : 97) + (c - (c < 97 ? 65 : 97) + k) % 26));
+        (char)((c < 97 ? 65 : 97) + (c - (c < 97 ? 65 : 97) + k) % 26));
 
         return r.toString();
     }
@@ -639,10 +642,10 @@ public List<List<Integer>> generate(int numRows) {
     List<List<Integer>> result = new ArrayList<>();
     
     for (int i = 0; i < numRows; i++) {
-        List<Integer> row = new ArrayList<>(Collections.nCopies(i + 1, 1));
+List<Integer> row = new ArrayList<>(Collections.nCopies(i + 1, 1));
         
         for (int j = 1; j < i; j++)
-            row.set(j, result.get(i-1).get(j-1) + result.get(i-1).get(j));
+row.set(j, result.get(i-1).get(j-1) + result.get(i-1).get(j));
         
         result.add(row);
     }
@@ -677,10 +680,15 @@ static class MiddleNodeTask {
     int max = nums[0], min = nums[0], result = nums[0];
 
     for (int i = 1; i < nums.length; i++) {
-        if (nums[i] < 0) { int tmp = max; max = min; min = tmp; }
-        max = Math.max(nums[i], max * nums[i]);
-        min = Math.min(nums[i], min * nums[i]);
-        result = Math.max(result, max);
+		
+    if (nums[i] < 0) { 
+		int tmp = max; 
+		max = min; 
+		in = tmp; }
+		
+     max = Math.max(nums[i], max * nums[i]);
+     min = Math.min(nums[i], min * nums[i]);
+    result = Math.max(result, max);
     }
 
     return result;
