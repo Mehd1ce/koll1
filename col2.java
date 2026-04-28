@@ -80,20 +80,18 @@ return (slow != null) ? slow.data : -1;
 
 
 8.	Gas station  2
-int total = 0, current = 0, start = 0;
+int start = 0, tank = 0, total = 0;
 
         for (int i = 0; i < gas.length; i++) {
-            int diff = gas[i] - cost[i];
-            total += diff;
-            current += diff;
-                       
-            if (current < 0) {
-                start = i + 1; 
-                current = 0;   
+            tank += gas[i] - cost[i];
+            total += gas[i] - cost[i];
+
+            if (tank < 0) {
+                start = i + 1;
+                tank = 0;
             }
         }
-
-        return (total < 0) ? -1 : start;
+        return total < 0 ? -1 : start;
 
 
 
