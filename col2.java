@@ -203,6 +203,26 @@ PriorityQueue<Integer> pq = new PriorityQueue<>(
         return result;
 
 
+15.  Stack: Parentheses Balance    2
+
+	int c = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') c++;
+            else if (--c < 0) return false;
+        }
+        return c == 0;
+
+
+16.  Longest Common Prefix   2
+ if (strs.length == 0) return "";
+        String prefix = strs[0];
+        for (String s : strs)
+            while (!s.startsWith(prefix)) prefix = prefix.substring(0, prefix.length() - 1);
+        return prefix;
+
+
+
+
 1. Finding Maximum and Minimum     1
 
     public int getMax(int[] arr) {
