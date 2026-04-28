@@ -19,14 +19,18 @@ int[] freq = new int[256];
 
 
 3.	Generating pascal’s triangle  2
-PriorityQueue<Integer> pq = new PriorityQueue<>(
-            (a, b) -> Math.abs(a - target) - Math.abs(b - target)
-        );
-
-        for (int num : nums) pq.add(num);
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < k; i++) result.add(pq.poll());
-        return result;
+List<List<Integer>> result = new ArrayList<>();
+    
+    for (int i = 0; i < numRows; i++) {
+        List<Integer> row = new ArrayList<>(Collections.nCopies(i + 1, 1));
+        
+        for (int j = 1; j < i; j++)
+            row.set(j, result.get(i-1).get(j-1) + result.get(i-1).get(j));
+        
+        result.add(row);
+    }
+    
+    return result;
 
 
 
@@ -191,8 +195,14 @@ static class MyQueue {
 }
 
 14.	 Finding the Points Closest  2
-return java.util.Arrays.stream(nums) .boxed() .sorted(java.util.Comparator.comparingInt(n -> Math.abs(n - target))) .limit(k) .collect(java.util.stream.Collectors.toList());
+PriorityQueue<Integer> pq = new PriorityQueue<>(
+            (a, b) -> Math.abs(a - target) - Math.abs(b - target)
+        );
 
+        for (int num : nums) pq.add(num);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) result.add(pq.poll());
+        return result;
 
 
 1. Finding Maximum and Minimum     1
