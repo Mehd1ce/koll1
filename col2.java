@@ -114,20 +114,10 @@ PriorityQueue<Integer> pq = new PriorityQueue<>();
 
 
 10.	 Anagram dedection  2
-if (s1.length() != s2.length()) return false;
-        
-        Map<Character, Integer> map = new HashMap<>();
-       
-        for (int i = 0; i < s1.length(); i++) {
-    map.put(s1.charAt(i), map.getOrDefault(s1.charAt(i), 0) + 1);
-    map.put(s2.charAt(i), map.getOrDefault(s2.charAt(i), 0) - 1);
-        }
-        
-        for (int count : map.values()) {
-            if (count != 0) return false;
-        }
-        
-        return true;
+char[] x = s1.toCharArray(), y = s2.toCharArray();
+    Arrays.sort(x);
+    Arrays.sort(y);
+    return Arrays.equals(x, y);
 
 
 
