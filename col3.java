@@ -231,38 +231,32 @@ public static List<Integer> inorderTraversal(TreeNode root) {
  public static boolean isBalanced(TreeNode root) {
     return height(root) != -1;
 }
-
 static int height(TreeNode n) {
     if (n == null) return 0;
-
     int l = height(n.left);
     if (l == -1) return -1;
-
     int r = height(n.right);
     if (r == -1) return -1;
-
     return Math.abs(l - r) > 1 ? -1 : 1 + Math.max(l, r);
 }
 
 
  22.   Finding the maximum degree of a general tree.      2
-
-    public static int getMaxDegree(Node root) {
+	 
     if (root == null) return 0;
     int m = root.children.size();
     for (Node c : root.children) m = Math.max(m, getMaxDegree(c));
     return m;
-}
+
 
 
 
 23.  Checking a Full Binary Tree.       2
 
-public static boolean isFullTree(TreeNode root) {
     if (root == null) return true;
     if ((root.left == null) != (root.right == null)) return false;
     return isFullTree(root.left) && isFullTree(root.right);
-}
+
 
 
 24. Checking a Binary Search Tree (BST)    2
@@ -284,32 +278,26 @@ static boolean dfs(TreeNode n, Integer min, Integer max) {
 
 25.   The height of a node in a binary tree.     2
 
-public static int getNodeHeight(TreeNode root) {
     return root == null ? 0 : 1 + Math.max(getNodeHeight(root.left), getNodeHeight(root.right));
-}
+
 
 
     26.    Root-to-leaf path sum     2
 
-    public static boolean hasPathSum(TreeNode root, int sum) {
-    if (root == null) return false;
-    if (root.left == null && root.right == null) return sum == root.val;
-    return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
-}
+   if (root == null) return false;
+    if (root.left == null && root.right == null) return targetSum == root.val;
+    return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
 
 
 
 27.  The depth of a specific node in a binary tree        2
 
-public static int getDepth(TreeNode root, int target) {
     if (root == null) return -1;
     if (root.val == target) return 0;
-
     int l = getDepth(root.left, target);
     int r = getDepth(root.right, target);
-
     return (l == -1 && r == -1) ? -1 : 1 + Math.max(l, r);
-}
+
 
 28. Password Combination Generation     2
 
@@ -632,7 +620,6 @@ public static MultiNode convertToMultiLevel(TreeNode root) {
 public static TreeNode sortedArrayToBST(int[] nums) {
     return build(nums, 0, nums.length - 1);
 }
-
 static TreeNode build(int[] a, int l, int r) {
     if (l > r) return null;
     int m = (l + r) / 2;
