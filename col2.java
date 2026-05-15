@@ -96,17 +96,15 @@ int start = 0, tank = 0, total = 0;
 
 
 9.	Finding higest-value elements  2
-PriorityQueue<Integer> pq = new PriorityQueue<>();
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
         
-        for (int num : nums) {
+        
+        for (int num : nums) 
             pq.add(num);
-            
-            if (pq.size() > k) pq.poll(); 
-        }
         
-        LinkedList<Integer> result = new LinkedList<>();
-        while (!pq.isEmpty()) {
-            result.addFirst(pq.poll()); 
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            result.add(pq.poll());
         }
         
         return result;
